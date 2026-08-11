@@ -134,7 +134,7 @@ build
 
 #keys
 *.pem
-
+.github/workflows/dockerhub-image-build.yml
 # Ignore all workflow files except specific ones
 #.github/workflows/*
 #!.github/workflows/helm-package-build.yml
