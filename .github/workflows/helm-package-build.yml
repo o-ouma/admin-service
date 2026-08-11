@@ -53,8 +53,8 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-#          tags: ${{ secrets.DOCKER_USERNAME }}/admin-service:${{ steps.pkg_version.outputs.VERSION }}
-          tags: booora/admin-service:4.0.0
+          tags: ${{ secrets.DOCKER_USERNAME }}/admin-service:${{ steps.pkg_version.outputs.VERSION }}
+#          tags: booora/admin-service:4.0.0
           secrets: |
             GH_TOKEN=${{ secrets.GH_TOKEN }}
 
@@ -97,7 +97,7 @@ jobs:
 
       - name: Push Helm chart to Docker Hub
         run: |
-          helm push ${{ env.REPO_NAME }}-${{ needs.build-and-push-image.outputs.version }}.tgz oci://docker.io/booora
+          helm push ${{ env.REPO_NAME }}-helm-${{ needs.build-and-push-image.outputs.version }}.tgz oci://docker.io/booora
 
       - name: Resolve source PR
         id: src_pr
