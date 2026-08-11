@@ -97,7 +97,8 @@ jobs:
 
       - name: Push Helm chart to Docker Hub
         run: |
-          helm push ${{ env.REPO_NAME }}-${{ needs.build-and-push-image.outputs.version }}.tgz oci://docker.io/booora
+#          helm push ${{ env.REPO_NAME }}-${{ needs.build-and-push-image.outputs.version }}.tgz oci://docker.io/booora
+          helm push ${{ env.REPO_NAME }}-helm-${{ needs.build-and-push-image.outputs.version }}.tgz oci://docker.io/booora
 
       - name: Resolve source PR
         id: src_pr
